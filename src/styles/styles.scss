@@ -1,0 +1,895 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Outfit", serif !important;
+
+}
+
+body {
+    overflow-x: hidden;
+    
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
+
+.mainContainer {
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container1, .container2, .container3 {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+}
+.container2{
+    height: 110vh;
+}
+
+.container1 {
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    background-image: url('../images/back.png');
+    background-size: cover;
+    background-position: center;
+}
+.container-white{
+    width: 100vw;
+}
+
+
+
+.two{
+    position: absolute;
+    background-image: url('../images/back-obj.png');
+    background-position: center;
+    background-size: cover;
+    left: -25em;
+    bottom: -25em;
+    margin: 0;
+}
+
+.coverScreen {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+}
+
+.leftSidebar {
+    width: 16%;
+    height: 50%;
+    display: flex;
+    position: absolute;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.logo {
+    margin: 20px 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 35px;
+}
+.logo span {
+    color: #00A36C;
+}
+
+.sidebarText {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.textSection {
+    width: 100%;
+    height: fit-content;
+    margin: 5px auto;
+    display: flex;
+    flex-wrap: wrap;
+    color: rgba(255, 255, 255, 0.199);
+    font-weight: 300;
+    cursor: pointer;
+}
+
+.textBox {
+    width: 100%;
+    height: 20px;
+    font-size: 18px;
+    padding-left: 20px;
+    transition: 0.3s;
+}
+
+.textBox:hover {
+    color: rgba(255, 255, 255, 0.849);
+    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.779);
+}
+
+.mainTextContainer {
+    width: 50%;
+    height: 40%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.mainText {
+    width: 100%;
+    font-size: 12em;
+    text-align: center;
+    line-height: 0.8em;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+    margin: auto;
+}
+
+.mainText span {
+    color: #00A36C;
+}
+
+.paragraph {
+    width: 50%;
+    margin: auto;
+    color: white;
+    text-align: center;
+    font-weight: 200;
+}
+
+.topRight {
+    width: 13%;
+    height: 10%;
+    padding-right: 15px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+}
+.landingTop{
+    width: 26%;
+    height: 10%;
+    padding-right: 15px;
+    position: absolute;
+    top: 0;
+    left: 38%;
+    transform: translateX(-35%);
+    display: flex;
+    flex-direction: row;
+}
+.topTextBox{
+    width: 48%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+}
+.topTextTop{
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-weight: 300;
+    font-size: 16px;
+    
+}
+.topTextBot{
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-weight: 300;
+    font-size: 16px;
+    margin: 5px auto;
+}
+.topTextBot span{
+    font-weight: bold;
+}
+
+.talkBtn {
+    width: 100px;
+    height: 35px;
+    margin: auto;
+    background-color: #303030;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.menuButton {
+    width: 45px;
+    height: 45px;
+    margin: auto;
+    background-color: #303030;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.menuButton:hover, .talkBtn:hover {
+    transform: scale(1.05);
+}
+
+.scrollbarContainer {
+    width: 7%;
+    height: 40%;
+    position: fixed;
+    right: 0;
+    top: 30%;
+    transform: translateY(-30%);
+    display: flex;
+    z-index: 999999;
+    transition: opacity 0.3s ease;
+}
+
+.scrollbarContainer.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.scrollBox {
+    width: 30%;
+    height: 65%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.scrollDot {
+    width: 15px;
+    height: 15px;
+    margin: 8px auto;
+    background-color: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px 0px rgba(255,255,255,0.7);
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.455);
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.scrollDot:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 12px 2px rgba(255,255,255,0.9);
+}
+
+.scrollDot.active {
+    background-color: #00C78C !important;
+    box-shadow: 0px 0px 10px 2px #00C78C !important;
+    border: none !important;
+    transform: scale(1.2) !important;
+}
+
+.scrolling .scrollDot {
+    transition: transform 0.2s ease;
+}
+
+.scrolling .active {
+    box-shadow: 0px 0px 15px 3px #00C78C !important;
+}
+
+.scrollBoxBar {
+    width: 3px;
+    height: 20px;
+    margin: 5px auto;
+    background-color: #00C78C;
+    transition: height 0.3s ease, opacity 0.3s ease;
+    border-radius: 3px;
+    box-shadow: 0px 0px 5px 0px rgba(0,199,140,0.5);
+}
+.jumpBtn {
+    position: absolute;
+    left: 47%;
+    top: 75%;
+    transform: translate(-47%, -75%);
+    width: 120px;
+    height: 120px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .jumpBtn:hover {
+    transform: translate(-47%, -75%) scale(1.1);
+  }
+  
+  .jumpBtn:hover .arrowIcon {
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .jumpBtn:hover .circle-path {
+    stroke: rgba(255, 255, 255, 0.9);
+    stroke-dasharray: 5, 15;
+  }
+  
+  .jumpBtn .dashed-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .circle-path {
+    transition: all 0.3s ease;
+  }
+  
+  .arrowIcon {
+    color: rgba(255, 255, 255, 0.621);
+    font-size: 4rem;
+    z-index: 1;
+    margin: auto;
+    transition: color 0.3s ease;
+  }
+  
+
+
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg) scale(1);
+    }
+    to {
+        transform: rotate(360deg) scale(1.1);
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .mainText {
+        font-size: 7em;
+    }
+    .paragraph {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .leftSidebar {
+        width: 20%;
+    }
+    .mainTextContainer {
+        width: 60%;
+    }
+    .mainText {
+        font-size: 6em;
+    }
+    .topRight {
+        width: 20%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .leftSidebar {
+        width: 25%;
+    }
+    .textBox {
+        font-size: 16px;
+    }
+    .mainTextContainer {
+        width: 70%;
+    }
+    .mainText {
+        font-size: 5em;
+    }
+    .paragraph {
+        width: 80%;
+    }
+    .scrollbarContainer {
+        width: 10%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .leftSidebar {
+        display: none;
+    }
+    .mainTextContainer {
+        width: 90%;
+        height: 50%;
+    }
+    .mainText {
+        font-size: 4em;
+    }
+    .paragraph {
+        width: 90%;
+    }
+    .topRight {
+        width: 30%;
+    }
+    .talkBtn {
+        display: none;
+    }
+    .menuButton {
+        margin-right: 10px;
+    }
+    .scrollbarContainer {
+        width: 15%;
+    }
+    .backImg {
+        width: 80vw;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .mainText {
+        font-size: 3em;
+    }
+    .paragraph {
+        font-size: 14px;
+    }
+}
+
+/* Height-based media queries */
+@media screen and (max-height: 700px) {
+    .mainTextContainer {
+        height: 50%;
+    }
+    .sidebarText {
+        height: 50%;
+    }
+    .textSection {
+        margin: 10px auto;
+    }
+}
+
+@media screen and (max-height: 500px) {
+    .mainText {
+        font-size: 3em;
+    }
+    .paragraph {
+        font-size: 14px;
+    }
+}
+
+.cursor-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    background-color: #00C78C;
+    transition: transform 0.05s ease-out, background-color 0.1s;
+    z-index: 123123123;
+  }
+
+  // Add this to your styles.scss file
+
+@keyframes shootingStar {
+    0% {
+      transform: translate(0, 0) rotate(-45deg);
+      opacity: 1;
+    }
+    
+    100% {
+      transform: translate(200px, 200px) rotate(-45deg);
+      opacity: 0;
+    }
+  }
+  
+  .shooting-star {
+    position: absolute;
+    width: 100px;
+    height: 1px;
+    background: linear-gradient(90deg, 
+      rgba(255,255,255,0) 0%,
+      rgba(255,255,255,1) 50%,
+      rgba(255,255,255,0) 100%);
+    top: var(--start-y);
+    left: var(--start-x);
+    animation: shootingStar 1s ease-out forwards;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 4px;
+      height: 4px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 
+        0 0 3px #fff,
+        0 0 5px #fff,
+        0 0 7px #fff;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+
+
+  .bottomBar {
+    width: 100%;
+    height: 80px;
+    background-color: rgb(0, 0, 0);
+    position: absolute;
+    bottom: 0;
+    color: white;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+  
+  .bottomText {
+    display: flex;
+    white-space: nowrap;
+    font-size: 24px;
+    letter-spacing: 1px;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-weight: bolder;
+  }
+  
+  .scrolling-content {
+    animation: scroll 30s linear infinite;
+    padding-right: 50px;
+    text-transform: uppercase;
+    font-weight: bolder;
+  }
+  
+  .text-white {
+    color: white;
+  }
+  
+  .text-green {
+    color: #049462;
+  }
+  
+  .scrolling-content span {
+    margin: 0 8px;
+  }
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background: black;
+    background-image: url('../images/back.png');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .mainWrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow-y: visible;
+  }
+  
+  .fixed-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    will-change: transform, opacity;
+    transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+  }
+  
+  .scroll-container {
+    position: relative;
+    width: 100%;
+    z-index: 2;
+    padding-top: 100vh;
+  }
+  
+  .scroll-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeUpIn 0.8s ease-out forwards;
+    
+    &:nth-child(1) {
+      animation-delay: 0.2s;
+      background-color: white;
+    }
+    
+    &:nth-child(2) {
+      animation-delay: 0.4s;
+      background-color: black;
+    }
+    
+    &:nth-child(3) {
+      animation-delay: 0.6s;
+      background-color: white;
+    }
+  }
+  
+  @keyframes fadeUpIn {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+//   .perspective-container {
+//     perspective: 1000px;
+//     perspective-origin: center;
+//   }
+  
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  .container1 {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    
+    &.loaded {
+      opacity: 1;
+    }
+  }
+  
+  .fade-in-up {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+  
+  .fade-in-left {
+    opacity: 0;
+    animation: fadeInLeft 0.8s ease-out forwards;
+  }
+  
+  .fade-in-right {
+    opacity: 0;
+    animation: fadeInRight 0.8s ease-out forwards;
+  }
+  
+  .mainTextContainer {
+    animation-delay: 0.3s;
+  }
+  
+  .leftSidebar {
+    animation-delay: 0.2s;
+  }
+  
+  .topRight {
+    animation-delay: 0.4s;
+  }
+  
+  .scrollbarContainer {
+    animation-delay: 0.5s;
+  }
+  
+  .bottomBar {
+    animation-delay: 0.6s;
+  }
+  
+  .landingTop {
+    animation-delay: 0.2s;
+  }
+  
+  .jumpBtn {
+    animation-delay: 0.7s;
+  }
+  
+  .mainText {
+    opacity: 0;
+    animation: scaleIn 0.8s ease-out 0.4s forwards;
+  }
+  
+  .paragraph {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.5s forwards;
+  }
+  
+  .textSection {
+    .textBox {
+      opacity: 0;
+      animation: fadeInLeft 0.5s ease-out forwards;
+    }
+    
+    @for $i from 1 through 10 {
+      .textBox:nth-child(#{$i}) {
+        animation-delay: #{0.1 + ($i * 0.1)}s;
+      }
+    }
+  }
+
+  .scrollbarContainer {
+    width: 7%;
+    height: 40%;
+    position: fixed;
+    right: 0;
+    top: 30%;
+    transform: translateY(-30%);
+    display: flex;
+    z-index: 999999;
+    transition: opacity 0.3s ease;
+  }
+  
+  .scrollBox {
+    width: 30%;
+    height: 65%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  
+  .scrollDot {
+    width: 15px;
+    height: 15px;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.698);
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .scrollDot::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.698);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .scrollDot:hover::after {
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+  
+  .scrollDot.active {
+    background-color: #00C78C;
+    box-shadow: 0 0 20px rgba(0, 199, 140, 0.5);
+  }
+  
+  .scrollDot.active::after {
+    background-color: rgba(0, 199, 140, 0.2);
+  }
+  
+  .scrollDot.scrolling {
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .scrollBoxBar {
+    width: 5px;
+    height: 20px;
+    margin: auto;
+    background-color: rgb(0, 255, 179);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .scrollBoxBar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00C78C;
+    transform: translateY(-100%);
+    animation: pulseBar 2s ease-in-out infinite;
+  }
+  
+//   @keyframes pulseBar {
+//     0% {
+//       transform: translateY(-100%);
+//     }
+//     50% {
+//       transform: translateY(0);
+//     }
+//     100% {
+//       transform: translateY(100%);
+//     }
+//   }
+  
+  .scroll-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .scroll-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  @media (hover: hover) {
+    .scrollDot:hover {
+      transform: scale(1.2);
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .scrollbarContainer {
+      width: 10%;
+    }
+    
+    .scrollDot {
+      width: 12px;
+      height: 12px;
+    }
+    
+    .scrollBoxBar {
+      width: 1px;
+      height: 15px;
+    }
+  }

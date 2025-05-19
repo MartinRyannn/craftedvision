@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Outfit", serif;
+
+}
+
+body {
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+.container2 {
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    background-image: url('../images/background-white.png');
+    background-size: cover;
+    background-position: center;
+}
+.topTextContainer{
+    width: 55%;
+    height: 42%;
+    display: flex;
+    flex-direction: column;
+}
+.miniHeading{
+    padding-left: 6vw;
+    margin-top: 3vh;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: rgba(0, 0, 0, 0.612);
+}
+.largeHeading{
+    padding-left: 6vw;
+    margin-top: 0vh;
+    font-size: 75px;
+    font-weight: 800;
+    color: rgb(0, 0, 0);
+}
+.topTextContainerRight{
+    width: 45%;
+    height: 42%;
+    display: flex;
+}
+.rightParagraph{
+    width: 60%;
+    margin: auto;
+    font-size: 19px;
+    font-weight: 200;
+    color: rgba(0, 0, 0, 0.504);
+}
+
+.floating-container {
+    width: 100%;
+    height: 57vh;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .shapes-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  
+  .floating-shape {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: var(--z-index);
+    
+
+  
+    .shape-content {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+  
+    .shape-background {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle at center,
+        var(--gradient-color) 0%,
+        transparent var(--gradient-stop)
+      );
+      transform: scale(0);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  
+    .shape-circle {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: var(--background-color);
+      border-radius: 50%;
+      opacity: 0.9;
+      transform: scale(0.9);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  
+    .shape-ring {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: 2px solid var(--ring-color);
+      border-radius: 50%;
+      opacity: 0.3;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  
+    .shape-ring-outer {
+      position: absolute;
+      width: 110%;
+      height: 110%;
+      border: 1px solid var(--ring-color);
+      border-radius: 50%;
+      opacity: 0;
+      transform: scale(0.9);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  
+    .shape-text {
+      color: var(--text-color);
+      font-weight: 800;
+      font-size: 1.2rem;
+      text-align: center;
+      white-space: pre-line;
+      line-height: 1.3;
+      opacity: 1;
+      transition: all 0.3s ease;
+      z-index: 2;
+    }
+  
+    .shape-particle {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: var(--particle-color);
+      border-radius: 50%;
+      opacity: 0;
+      transition: all 0.4s ease;
+      animation: particleFloat 2s ease-in-out infinite;
+      animation-delay: var(--delay);
+  
+      &:nth-child(1) { transform: translate(60px, 0); }
+      &:nth-child(2) { transform: translate(-30px, 52px); }
+      &:nth-child(3) { transform: translate(-30px, -52px); }
+    }
+  
+    // Separate hover states for black circle and green circles
+    &[style*="--background-color:black"], 
+    &[style*="--background-color: black"] {
+      &:hover, &.active2 {
+        .shape-background {
+          transform: scale(0); // Prevents background from showing
+        }
+  
+        .shape-ring-outer {
+          opacity: 0.2;
+          transform: scale(1);
+          border-color: black; // Ensures outer ring stays black
+        }
+  
+        .shape-particle {
+          opacity: 0.6;
+          background: black; // Ensures particles stay black
+        }
+      }
+    }
+  
+    // Hover states for green circles
+    &:not([style*="--background-color:black"]):not([style*="--background-color: black"]) {
+      &:hover, &.active2 {
+        .shape-background {
+          transform: scale(1);
+        }
+  
+        .shape-ring-outer {
+          opacity: 0.2;
+          transform: scale(1);
+        }
+  
+        .shape-particle {
+          opacity: 0.6;
+        }
+      }
+    }
+  
+    animation: gentleFloat var(--animation-duration) ease-in-out infinite;
+    animation-delay: var(--animation-delay);
+  }
+  
+  @keyframes gentleFloat {
+    0%, 100% {
+      transform: translate(-50%, -50%);
+    }
+    50% {
+      transform: translate(-50%, calc(-50% - 10px));
+    }
+  }
+  
+  @keyframes particleFloat {
+    0%, 100% {
+      transform: translate(var(--x), var(--y));
+    }
+    50% {
+      transform: translate(calc(var(--x) + 10px), calc(var(--y) - 10px));
+    }
+  }

@@ -1,0 +1,48 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+    width: 70%;
+
+    @media (min-width: 768px) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .grid-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #00A36C;
+        color: white;
+        border-radius: 30px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 60px 40px;
+        text-align: center;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+
+        &:hover {
+            background-color: rgb(6, 121, 88);
+        }
+
+        .icon {
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-weight: bold;
+            font-size: 1.4rem;
+        }
+
+        /* Staggered effect */
+        &:nth-child(odd) {
+            transform: translateY(-20px);
+        }
+
+        &:nth-child(even) {
+            transform: translateY(20px);
+        }
+    }
+}
