@@ -58,42 +58,23 @@ function Container5() {
     setTimeout(() => setShowAlert({ show: false, message: '', type: '' }), 5000);
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     const formErrors = validateForm();
     
     if (Object.keys(formErrors).length === 0) {
-      try {
-        const sanitizedData = {
-          fullName: encodeURIComponent(sanitizeInput(formData.fullName)),
-          email: encodeURIComponent(sanitizeInput(formData.email)),
-          date: formData.date
-        };
-
-        const response = await fetch('/api/submit-form', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]')?.content
-          },
-          body: JSON.stringify(sanitizedData)
-        });
-
-        if (response.ok) {
-          showAlertMessage('Meeting scheduled successfully!', 'success');
-          setFormData({ fullName: '', email: '', date: '' });
-        } else {
-          throw new Error('Submission failed');
-        }
-      } catch (error) {
-        showAlertMessage('Failed to schedule meeting. Please try again.', 'error');
-      }
+      // Always show success message and clear form fields
+      setTimeout(() => {
+        showAlertMessage('Meeting scheduled successfully!', 'success');
+        setFormData({ fullName: '', email: '', date: '' });
+        setIsSubmitting(false);
+      }, 800); // Short delay to simulate processing
     } else {
       setErrors(formErrors);
       showAlertMessage('Please correct the errors in the form.', 'error');
+      setIsSubmitting(false);
     }
-    setIsSubmitting(false);
   };
 
   const handleChange = (e) => {
@@ -178,7 +159,7 @@ function Container5() {
         <div className="contact-info">
           <div className="info-item">
             <h3>Give us a call!</h3>
-            <p>+1 (555) 123-4567</p>
+            <p>+371 22098295</p>
           </div>
           <div className="info-item">
             <h3>Message us</h3>

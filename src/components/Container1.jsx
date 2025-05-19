@@ -28,6 +28,28 @@ const Container1 = () => {
     setShowShootingStar(false);
   };
 
+  const scrollToContact = () => {
+    // Get all sections with their data-index attributes
+    const containers = document.querySelectorAll('.scroll-section[data-index="4"]');
+    if (containers.length > 0) {
+      // Navigate to Container5 which has data-index="4"
+      containers[0].scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    } else {
+      // Fallback: try to get the last container if data-index approach doesn't work
+      const allContainers = document.querySelectorAll('.scroll-section');
+      if (allContainers.length > 0) {
+        const lastContainer = allContainers[allContainers.length - 1];
+        lastContainer.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }
+  };
+
   const scrollToNext = () => {
     const containers = document.querySelectorAll('.scroll-section');
     if (containers[1]) {
@@ -84,8 +106,7 @@ const Container1 = () => {
           <div className="paragraph">Providing Modern, Creative, and Impactful Websites That Elevate Your Brand and Drive Success!</div>
         </div>
         <div className="topRight fade-in-right">
-          <button className="talkBtn">Let's Talk</button>
-          <button className="menuButton"></button>
+          <button className="talkBtn" onClick={scrollToContact}>Let's Talk</button>
         </div>
 
         <div className="jumpBtn fade-in-up" onClick={scrollToNext}>
